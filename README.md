@@ -297,7 +297,7 @@ streamlit run app.py
 
 **Zahra Abbas**
 
-Computer Engineering Student | Data Analytics Enthusiast | Machine Learning Learner
+Data Science Student | Data Analytics Enthusiast | Machine Learning Learner
 
 ### Connect With Me
 
