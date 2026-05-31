@@ -25,7 +25,7 @@ from pathlib import Path
 
 DATASET_PATH = Path(__file__).parent.parent / "dataset.csv"
 
-with st.expander("📂 Upload Dataset (Optional)", expanded=False):
+    with st.expander("📂 Upload Dataset (Optional)", expanded=False):
     uploaded = st.file_uploader(
         "Upload your own CSV",
         type=["csv"],
