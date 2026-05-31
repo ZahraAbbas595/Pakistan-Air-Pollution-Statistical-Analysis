@@ -1,178 +1,311 @@
-# 🌍 Pakistan Air Pollution Statistical Analysis
+# 🌫️ Pakistan Air Pollution Statistical Analysis Dashboard
 
-A comprehensive statistical analysis project examining air pollution trends across 10 major Pakistani cities using regression modeling, hypothesis testing, probability distributions, and time series forecasting.
+## 📌 Overview
 
-This project was developed for **STAT222 – Advanced Statistics** and analyzes over 21,000 hourly environmental observations to study AQI variation, PM2.5 behavior, seasonal trends, and pollutant relationships across Pakistan.
+This project presents a comprehensive statistical analysis of air pollution patterns across major cities in Pakistan using advanced statistical techniques, data visualization, and an interactive Streamlit dashboard.
 
----
+The study investigates air quality trends, pollutant distributions, city-wise differences, temporal patterns, and environmental relationships through a combination of classical statistics, regression modeling, and time-series forecasting.
 
-## 📌 Project Overview
-
-Pakistan consistently ranks among the most polluted countries in the world. This project applies advanced statistical techniques to analyze air quality patterns and identify significant environmental trends.
-
-The analysis focuses on:
-
-- AQI differences across cities
-- Seasonal pollution variation
-- PM2.5 prediction modeling
-- Probability distribution fitting
-- ARIMA forecasting
-- Hypothesis testing
-- Environmental trend analysis
+The project was developed as part of an Advanced Statistics course and transformed into a fully deployed interactive analytics dashboard.
 
 ---
 
-## ✨ Statistical Methods Used
+## 🌐 Live Dashboard
 
-### Parametric Methods
-- One-Way ANOVA
-- Two-Way ANOVA
-- Multiple Linear Regression
-- Welch’s T-Test
-- ARIMA Forecasting
+🔗 **Live App:** https://air-pollution-analysis.streamlit.app/
 
-### Nonparametric Methods
-- Kruskal-Wallis Test
-- Mann-Whitney U Test
-- Mann-Kendall Trend Test
-- Kolmogorov-Smirnov Test
-- Chi-Square Test
-
-### Distribution Analysis
-- Normal Distribution
-- Lognormal Distribution
-- Gamma Distribution
-- Weibull Distribution
+Users can explore the complete analysis interactively without installing any software.
 
 ---
 
-## 📂 Project Files
+## 📊 Dataset
 
-```bash
+The dataset contains:
+
+* Air Quality Indicators
+* PM2.5 Concentrations
+* PM10 Concentrations
+* NO₂ Levels
+* SO₂ Levels
+* CO Levels
+* Temperature
+* Humidity
+* Wind Speed
+* Timestamp Information
+* Multiple Pakistani Cities
+
+### Study Scope
+
+* 21,840+ observations
+* 10 major cities
+* Multi-month pollution monitoring period
+
+---
+
+## 🎯 Objectives
+
+This project aims to:
+
+* Analyze air pollution trends across Pakistan
+* Compare pollution levels among cities
+* Evaluate statistical differences in air quality
+* Model relationships between pollutants and environmental variables
+* Forecast future pollution patterns
+* Build an interactive analytical dashboard for exploration and decision-making
+
+---
+
+# 📈 Statistical Techniques Applied
+
+## 1️⃣ Exploratory Data Analysis (EDA)
+
+* Missing value assessment
+* Descriptive statistics
+* Distribution analysis
+* Outlier investigation
+* Correlation analysis
+
+---
+
+## 2️⃣ One-Way ANOVA
+
+Used to determine whether significant differences exist between pollution levels across different cities.
+
+### Research Question
+
+Do mean pollution levels differ significantly among Pakistani cities?
+
+---
+
+## 3️⃣ Two-Way ANOVA
+
+Used to evaluate:
+
+* City effects
+* Seasonal effects
+* City × Season interaction effects
+
+---
+
+## 4️⃣ Distribution Fitting
+
+Various probability distributions were evaluated to determine the best fit for air pollution measurements.
+
+Distributions explored include:
+
+* Normal Distribution
+* Lognormal Distribution
+* Gamma Distribution
+* Weibull Distribution
+
+---
+
+## 5️⃣ Multiple Linear Regression
+
+Regression modeling was performed to investigate the relationship between:
+
+### Target Variable
+
+* PM2.5
+
+### Predictor Variables
+
+* Temperature
+* Humidity
+* Wind Speed
+* NO₂
+* SO₂
+* CO
+
+---
+
+## 6️⃣ Time Series Analysis
+
+Advanced temporal analysis was conducted to identify pollution trends over time.
+
+### Methods
+
+* Trend Analysis
+* Rolling Statistics
+* Seasonal Decomposition
+* ARIMA Modeling
+
+---
+
+## 7️⃣ ARIMA Forecasting
+
+Autoregressive Integrated Moving Average (ARIMA) models were used to forecast future PM2.5 concentrations.
+
+---
+
+## 8️⃣ Nonparametric Statistical Testing
+
+Robust statistical testing was performed using:
+
+* Kruskal-Wallis Test
+* Mann-Whitney U Test
+* Kolmogorov-Smirnov Test
+
+These methods provide reliable conclusions when normality assumptions are violated.
+
+---
+
+# 🖥️ Interactive Streamlit Dashboard
+
+The project was transformed into a fully interactive Streamlit application featuring:
+
+### 🏠 Overview
+
+* Project introduction
+* Dataset summary
+* Key statistics
+
+### 📊 Exploratory Analysis
+
+* Interactive visualizations
+* Distribution exploration
+
+### 🔬 ANOVA Analysis
+
+* One-Way ANOVA Results
+* Two-Way ANOVA Results
+
+### 📐 Distribution Fitting
+
+* Distribution comparisons
+* Goodness-of-fit analysis
+
+### 📈 Regression Modeling
+
+* Model performance
+* Statistical interpretation
+
+### ⏱️ Time Series & ARIMA
+
+* Trend visualization
+* Forecasting outputs
+
+### 🔢 Nonparametric Analysis
+
+* Robust statistical testing
+
+### 🧪 Additional Hypothesis Tests
+
+* Extended statistical validation
+
+### ✅ Summary & Conclusions
+
+* Key findings
+* Final recommendations
+
+---
+
+# 🛠️ Technologies Used
+
+### Programming
+
+* Python
+
+### Data Analysis
+
+* Pandas
+* NumPy
+
+### Statistics
+
+* SciPy
+* StatsModels
+
+### Visualization
+
+* Plotly
+* Matplotlib
+* Seaborn
+
+### Dashboard Development
+
+* Streamlit
+
+### Deployment
+
+* GitHub
+* Streamlit Community Cloud
+
+---
+
+# 📂 Project Structure
+
+```text
 Pakistan-Air-Pollution-Statistical-Analysis/
+
 │
 ├── dataset.csv
-├── statistical_analysis.py
-├── Semester_Final_Project_Report.pdf
+├── python_code.ipynb
+├── report.docx
+│
+├── pakistan_air_quality_dashboard/
+│   ├── app.py
+│   ├── assets/
+│   ├── utils/
+│   ├── _pages/
+│   └── requirements.txt
+│
 └── README.md
 ```
 
 ---
 
-## 📊 Dataset Information
+# 🚀 How To Run Locally
 
-- **Dataset:** Pakistan Air Quality & Weather Dataset
-- **Observations:** 21,840 hourly records
-- **Cities:** 10 major Pakistani cities
-- **Time Period:** November 2025 – February 2026
-
-### Cities Included
-- Lahore
-- Faisalabad
-- Gujranwala
-- Karachi
-- Multan
-- Peshawar
-- Islamabad
-- Rawalpindi
-- Quetta
-- Hyderabad
-
----
-
-## 📌 Variables Included
-
-### Pollutants
-- PM2.5
-- PM10
-- NO2
-- SO2
-- CO
-
-### Meteorological Variables
-- Temperature
-- Humidity
-- Wind Speed
-
-### Additional Features
-- AQI Category
-- Season
-- Timestamp
-- City
-
----
-
-## 📈 Key Findings
-
-- Lahore, Faisalabad, and Gujranwala showed the highest pollution levels.
-- PM2.5 followed a Lognormal distribution more closely than a Normal distribution.
-- PM10 was the strongest predictor of PM2.5 concentration.
-- Wind speed showed a significant negative relationship with pollution levels.
-- ARIMA(1,0,0) produced the best forecasting performance.
-
----
-
-## 🚀 How to Run
-
-### 1️⃣ Install Required Libraries
+Clone the repository:
 
 ```bash
-pip install pandas numpy matplotlib seaborn scipy statsmodels scikit-learn
+git clone <repository-url>
+```
+
+Navigate into the dashboard directory:
+
+```bash
+cd pakistan_air_quality_dashboard
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run the Streamlit application:
+
+```bash
+streamlit run app.py
 ```
 
 ---
 
-### 2️⃣ Run the Python File
+# 📌 Key Insights
 
-```bash
-python statistical_analysis.py
-```
-
----
-
-## 📉 Statistical Analysis Included
-
-- Exploratory Data Analysis (EDA)
-- Correlation Analysis
-- One-Way ANOVA
-- Two-Way ANOVA
-- Multiple Linear Regression
-- Time Series Forecasting (ARIMA)
-- Distribution Fitting
-- Residual Diagnostics
-- Hypothesis Testing
-- Nonparametric Analysis
+* Significant differences in pollution levels exist among cities.
+* Air quality varies substantially across seasons.
+* PM2.5 exhibits strong relationships with multiple environmental variables.
+* Time-series analysis reveals persistent temporal patterns.
+* Statistical evidence supports targeted environmental interventions.
 
 ---
 
-## 📚 Learning Outcomes
+# 👩‍💻 Author
 
-This project demonstrates practical implementation of:
+**Zahra Abbas**
 
-- Advanced statistical inference
-- Environmental data analysis
-- Time series forecasting
-- Regression diagnostics
-- Probability distribution fitting
-- Statistical hypothesis testing
-- Data visualization
+Computer Engineering Student | Data Analytics Enthusiast | Machine Learning Learner
 
----
+### Connect With Me
 
-## ⚠️ Limitations
-
-- Dataset covers only Autumn and Winter seasons
-- Single monitoring station per city
-- Results are specific to the observed winter pollution period
+* GitHub
+* LinkedIn
+* Fiverr
+* Contra
 
 ---
 
-## 👨‍💻 Author
-
-- Zahra Abbas
-- Linkedin: https://www.linkedin.com/in/zahra-abbas-9a665037a/
----
-
-## ⭐ Support
-
-If you found this project useful, consider giving it a ⭐ on GitHub.
+## ⭐ If you found this project useful, consider giving it a star!
