@@ -40,11 +40,16 @@ CITY_PALETTE = [
     "#f472b6", "#34d399", "#fb7185", "#60a5fa", "#a78bfa",
 ]
 
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+
 POSSIBLE_FILES = [
-    "pakistan_air_quality_final_clean.csv",
-    "air_quality_pakistan.csv",
-    "Pakistan_Air_Quality_Weather.csv",
-    "data.csv",
+    BASE_DIR / "dataset.csv",
+    BASE_DIR / "pakistan_air_quality_final_clean.csv",
+    BASE_DIR / "air_quality_pakistan.csv",
+    BASE_DIR / "Pakistan_Air_Quality_Weather.csv",
+    BASE_DIR / "data.csv",
 ]
 
 
