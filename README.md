@@ -301,10 +301,9 @@ Computer Engineering Student | Data Analytics Enthusiast | Machine Learning Lear
 
 ### Connect With Me
 
-* GitHub
-* LinkedIn
-* Fiverr
-* Contra
+* GitHub: https://github.com/ZahraAbbas595
+* LinkedIn: www.linkedin.com/in/zahra-abbas-9a665037a
+* Fiverr: https://www.fiverr.com/users/zahraabbas959
 
 ---
 
