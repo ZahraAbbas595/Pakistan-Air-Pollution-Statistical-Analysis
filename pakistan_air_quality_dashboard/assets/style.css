@@ -1,0 +1,436 @@
+/* ════════════════════════════════════════════════════════════════════
+   Pakistan Air Quality Dashboard — Global Styles
+   Theme: Dark analytical, slate + ember accent, Sora typography
+   ════════════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ── CSS Variables ──────────────────────────────────────────────── */
+:root {
+  --bg:           #0d1117;
+  --bg-card:      #161b22;
+  --bg-elevated:  #1c2128;
+  --border:       #30363d;
+  --text-primary: #e6edf3;
+  --text-muted:   #8b949e;
+  --text-faint:   #484f58;
+  --accent:       #f97316;        /* ember orange */
+  --accent-muted: #7c3a16;
+  --accent-2:     #38bdf8;        /* sky blue */
+  --accent-green: #4ade80;
+  --accent-red:   #f87171;
+  --accent-yellow:#fbbf24;
+  --radius:       10px;
+  --font:         'Sora', sans-serif;
+  --mono:         'JetBrains Mono', monospace;
+  --shadow:       0 4px 24px rgba(0,0,0,.45);
+}
+
+/* ── Global reset ───────────────────────────────────────────────── */
+* { box-sizing: border-box; }
+
+.stApp {
+  background: var(--bg) !important;
+  font-family: var(--font) !important;
+  color: var(--text-primary) !important;
+}
+
+/* ── Sidebar ────────────────────────────────────────────────────── */
+section[data-testid="stSidebar"] {
+  background: var(--bg-card) !important;
+  border-right: 1px solid var(--border) !important;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 4px 16px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 16px;
+}
+
+.sidebar-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.sidebar-title {
+  font-family: var(--font);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.sidebar-title span {
+  color: var(--accent);
+  font-weight: 400;
+  font-size: 0.85rem;
+}
+
+.nav-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  color: var(--text-faint);
+  margin-bottom: 6px;
+  padding-left: 2px;
+}
+
+.sidebar-meta {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  line-height: 2;
+}
+
+.sidebar-meta b {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* ── Radio buttons (nav) ────────────────────────────────────────── */
+div[data-testid="stRadio"] > label {
+  display: none;
+}
+
+div[data-testid="stRadio"] div[role="radiogroup"] {
+  gap: 2px !important;
+  display: flex;
+  flex-direction: column;
+}
+
+div[data-testid="stRadio"] label[data-testid="stWidgetLabel"] {
+  display: none !important;
+}
+
+/* ── Main content area ──────────────────────────────────────────── */
+.main .block-container {
+  padding: 2rem 2.5rem 4rem !important;
+  max-width: 1440px !important;
+}
+
+/* ── Page header ────────────────────────────────────────────────── */
+.page-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.page-header .eyebrow {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.page-header h1 {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0 0 8px;
+  line-height: 1.15;
+}
+
+.page-header p {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  max-width: 680px;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── Metric cards ───────────────────────────────────────────────── */
+.metric-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color .2s, transform .15s;
+}
+
+.metric-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.metric-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+}
+
+.metric-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.metric-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+  margin-bottom: 6px;
+  font-family: var(--mono);
+}
+
+.metric-sub {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.metric-value.danger { color: var(--accent-red); }
+.metric-value.warning { color: var(--accent-yellow); }
+.metric-value.good   { color: var(--accent-green); }
+
+/* ── Section headers ────────────────────────────────────────────── */
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 2rem 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ── Hypothesis box ─────────────────────────────────────────────── */
+.hypothesis-box {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent-2);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  margin: 1rem 0;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.hypothesis-box .h-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.hypothesis-box .h-label {
+  font-family: var(--mono);
+  font-weight: 600;
+  color: var(--accent-2);
+  min-width: 28px;
+}
+
+.hypothesis-box .h-text {
+  color: var(--text-primary);
+}
+
+.hypothesis-box .alpha {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ── Result badge ───────────────────────────────────────────────── */
+.result-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+
+.result-badge.reject {
+  background: rgba(249,115,22,.15);
+  color: var(--accent);
+  border: 1px solid rgba(249,115,22,.3);
+}
+
+.result-badge.fail {
+  background: rgba(74,222,128,.12);
+  color: var(--accent-green);
+  border: 1px solid rgba(74,222,128,.25);
+}
+
+/* ── Stat table ─────────────────────────────────────────────────── */
+.stat-result-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+  margin: 1rem 0;
+}
+
+.stat-cell {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+.stat-cell .sc-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.stat-cell .sc-value {
+  font-family: var(--mono);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* ── Info callout ───────────────────────────────────────────────── */
+.callout {
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  font-size: 0.86rem;
+  line-height: 1.65;
+  margin: 1rem 0;
+}
+
+.callout.info {
+  background: rgba(56,189,248,.08);
+  border: 1px solid rgba(56,189,248,.2);
+  color: #bae6fd;
+}
+
+.callout.warning {
+  background: rgba(251,191,36,.08);
+  border: 1px solid rgba(251,191,36,.2);
+  color: #fde68a;
+}
+
+.callout.success {
+  background: rgba(74,222,128,.08);
+  border: 1px solid rgba(74,222,128,.2);
+  color: #bbf7d0;
+}
+
+.callout.danger {
+  background: rgba(248,113,113,.08);
+  border: 1px solid rgba(248,113,113,.2);
+  color: #fecaca;
+}
+
+.callout strong {
+  font-weight: 700;
+}
+
+/* ── Dataframe overrides ────────────────────────────────────────── */
+.stDataFrame {
+  border-radius: var(--radius) !important;
+  border: 1px solid var(--border) !important;
+  overflow: hidden;
+}
+
+/* ── Streamlit widget overrides ─────────────────────────────────── */
+div[data-testid="stSelectbox"] > div,
+div[data-testid="stMultiSelect"] > div,
+div[data-testid="stSlider"] {
+  background: var(--bg-elevated) !important;
+}
+
+.stButton > button {
+  background: var(--accent) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 8px !important;
+  font-family: var(--font) !important;
+  font-weight: 600 !important;
+  padding: 8px 20px !important;
+  transition: opacity .2s !important;
+}
+
+.stButton > button:hover {
+  opacity: .85 !important;
+}
+
+/* ── Tabs ───────────────────────────────────────────────────────── */
+.stTabs [data-baseweb="tab-list"] {
+  background: var(--bg-card) !important;
+  border-bottom: 1px solid var(--border) !important;
+  gap: 0 !important;
+}
+
+.stTabs [data-baseweb="tab"] {
+  background: transparent !important;
+  color: var(--text-muted) !important;
+  font-family: var(--font) !important;
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+  padding: 10px 18px !important;
+  border-bottom: 2px solid transparent !important;
+}
+
+.stTabs [aria-selected="true"] {
+  color: var(--text-primary) !important;
+  border-bottom: 2px solid var(--accent) !important;
+}
+
+/* ── Expander ───────────────────────────────────────────────────── */
+details[data-testid="stExpander"] {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  margin-bottom: .75rem;
+}
+
+details[data-testid="stExpander"] summary {
+  font-family: var(--font) !important;
+  font-weight: 600 !important;
+  color: var(--text-primary) !important;
+  padding: 12px 16px !important;
+}
+
+/* ── Plot container ─────────────────────────────────────────────── */
+div[data-testid="stPlotlyChart"],
+div[data-testid="stVegaLiteChart"] {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg-card) !important;
+}
+
+/* ── AQI colour strips ──────────────────────────────────────────── */
+.aqi-strip {
+  display: flex;
+  gap: 4px;
+  margin: 8px 0;
+}
+
+.aqi-chip {
+  flex: 1;
+  height: 8px;
+  border-radius: 100px;
+}
+
+/* ── Scrollbar ──────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-faint); }
+
+/* ── Streamlit hide decoration ──────────────────────────────────── */
+#MainMenu, footer, header[data-testid="stHeader"] { display: none !important; }
