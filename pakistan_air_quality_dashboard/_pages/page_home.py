@@ -43,8 +43,7 @@ def render():
     if uploaded_file is not None:
         df = load_data(uploaded_file)
     else:
-        df = pd.read_csv(DATASET_PATH)
-        df = load_data(df)
+        df = load_data()
 
     if df is None:
         st.markdown("---")
