@@ -21,43 +21,40 @@ def render():
     )
 
     # ── File upload ──────────────────────────────────────────────────────────
-from pathlib import Path
 
-DATASET_PATH = Path(__file__).parent.parent / "dataset.csv"
+    from pathlib import Path
+
+    DATASET_PATH = Path(__file__).parent.parent / "dataset.csv"
 
     with st.expander("📂 Upload Dataset (Optional)", expanded=False):
-    uploaded = st.file_uploader(
-        "Upload your own CSV",
-        type=["csv"],
-        label_visibility="collapsed",
-    )
+        uploaded = st.file_uploader(
+            "Upload your own CSV",
+            type=["csv"],
+            label_visibility="collapsed",
+        )
 
-    if uploaded:
-        st.session_state["uploaded_file"] = uploaded
+        if uploaded:
+            st.session_state["uploaded_file"] = uploaded
 
-uploaded_file = st.session_state.get("uploaded_file", None)
+    uploaded_file = st.session_state.get("uploaded_file", None)
 
-if uploaded_file is not None:
-    df = load_data(uploaded_file)
-else:
-    df = load_data(DATASET_PATH)
+    if uploaded_file is not None:
+        df = load_data(uploaded_file)
+    else:
+        df = load_data(DATASET_PATH)
 
-if df is None:
-    st.markdown("---")
-    no_data_message()
+    if df is None:
+        st.markdown("---")
+        no_data_message()
         callout(
-            "Download the dataset from: "
-            "<a href='https://www.kaggle.com/datasets/ahsanneural/pakistan-air-quality-and-weather-10-cities' "
-            "target='_blank' style='color:#38bdf8'>Kaggle — Pakistan Air Quality</a> "
-            "then upload it above.",
-            "info",
+            "Dataset could not be loaded.",
+            "warning",
         )
         _render_demo_content()
         return
 
     st.session_state["df"] = df
     _render_with_data(df)
-
 
 def _render_with_data(df):
     # ── Top metrics ──────────────────────────────────────────────────────────
