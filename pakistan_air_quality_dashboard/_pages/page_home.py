@@ -38,10 +38,13 @@ def render():
 
     uploaded_file = st.session_state.get("uploaded_file", None)
 
+    import pandas as pd
+
     if uploaded_file is not None:
         df = load_data(uploaded_file)
     else:
-        df = load_data(DATASET_PATH)
+        df = pd.read_csv(DATASET_PATH)
+        df = load_data(df)
 
     if df is None:
         st.markdown("---")
