@@ -17,8 +17,17 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-with open("assets/style.css", encoding="utf-8") as f:
-    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+from pathlib import Path
+
+BASE_DIR = Path(__file__).parent
+
+css_file = BASE_DIR / "assets" / "style.css"
+
+with open(css_file, encoding="utf-8") as f:
+    st.markdown(
+        f"<style>{f.read()}</style>",
+        unsafe_allow_html=True
+    )
 
 import sys, os
 sys.path.insert(0, os.path.dirname(__file__))
