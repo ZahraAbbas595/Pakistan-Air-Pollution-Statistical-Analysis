@@ -21,21 +21,30 @@ def render():
     )
 
     # ── File upload ──────────────────────────────────────────────────────────
-    with st.expander("📂  Upload Dataset  (click to expand)", expanded=True):
-        uploaded = st.file_uploader(
-            "Upload pakistan_air_quality_final_clean.csv",
-            type=["csv"],
-            label_visibility="collapsed",
-        )
-        if uploaded:
-            st.session_state["uploaded_file"] = uploaded
+from pathlib import Path
 
-    uploaded_file = st.session_state.get("uploaded_file", None)
+DATASET_PATH = Path(__file__).parent.parent / "dataset.csv"
+
+with st.expander("📂 Upload Dataset (Optional)", expanded=False):
+    uploaded = st.file_uploader(
+        "Upload your own CSV",
+        type=["csv"],
+        label_visibility="collapsed",
+    )
+
+    if uploaded:
+        st.session_state["uploaded_file"] = uploaded
+
+uploaded_file = st.session_state.get("uploaded_file", None)
+
+if uploaded_file is not None:
     df = load_data(uploaded_file)
+else:
+    df = load_data(DATASET_PATH)
 
-    if df is None:
-        st.markdown("---")
-        no_data_message()
+if df is None:
+    st.markdown("---")
+    no_data_message()
         callout(
             "Download the dataset from: "
             "<a href='https://www.kaggle.com/datasets/ahsanneural/pakistan-air-quality-and-weather-10-cities' "
